@@ -4,7 +4,7 @@ on:
     types: [opened]
 jobs:
     playGame:
-      runs-on: unbuntu-latest
+      runs-on: ubuntu-latest
       steps: 
         - name: checkout repo
           uses: actions/checkout@v4
