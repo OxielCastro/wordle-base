@@ -20,7 +20,7 @@ jobs:
             GUESS=$(echo $TITLE | cut -c 1-5)
             chmod u+x wordle.py
             ./wordle.py "$TARGET" "$GUESS" > output.txt
-            echo "result_code=?" >> "$GITHUB_STEP_SUMMARY"
+            echo "result_code=$?" >> "$GITHUB_STEP_SUMMARY"
           env:
             EVENT_ID: ${{ github.event.issue.id }}
             TITLE: ${{ github.event.issue.title }}
