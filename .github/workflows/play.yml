@@ -25,10 +25,10 @@ jobs:
             echo "result_code=$?" >> "$GITHUB_STEP_SUMMARY"
           env:
             EVENT_ID: ${{ github.event.issue.id }}
-            TITLE: ${{ github.event.issue.title }}
+            TITLE: ${{  github.event.comment.body || github.event.issue.title }}
         - name: Add comment
           run: gh issue comment "$NUMBER" --body-file output.txt
           env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             GH_REPO: ${{ github.repository }}
-            NUMBER: ${{ github.event.comment.body || github.event.issue.number }}
+            NUMBER: ${{ github.event.issue.number }}
